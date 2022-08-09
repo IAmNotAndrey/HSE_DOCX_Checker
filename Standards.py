@@ -8,20 +8,22 @@ class Standards:
 	'''Стандарты оформления ВКР, установленные ВШЭ'''
 	#@dataclass
 	class FontNames:
-		# Шрифты
+		""" Шрифты """
 		standard: str = 'Times New Roman'
 	
 	#@dataclass
 	class FontSizes:
-		# Кегли
+		"""Кегли"""
 		level_1_header: Length = Pt(16)
 		level_2_header: Length = Pt(14)
-		standard: Length = Pt(13)
+		# standard: None | Length = Pt(13)
+		standard: None | Length = None
 		reduced: Length = Pt(12)
 
 	#@dataclass
 	class VerticalSpaces:
-		# Интервалы перед/после
+		'''Вертикальные интервалы'''
+		# Интервалы перед/после (по вертикали)
 		level_1_header: dict[str, None | Length] =	{'space_before': Pt(0),	'space_after': Pt(12)}
 		level_2_header: dict[str, None | Length] =	{'space_before': Pt(12),'space_after': Pt(6)}
 		level_3_header: dict[str, None | Length] =	{'space_before': Pt(8),	'space_after': Pt(4)}
@@ -37,31 +39,40 @@ class Standards:
 
 	#@dataclass
 	class HorizontalSpaces:
+		'''Горизонтальные интервалы'''
 		# Отсутпы первой строки / слева / справа
 		indents_standard: dict[str, None | Length] = {
-									'first_line_indent': Cm(0),
-									'left_indent': Cm(0),
-									'right_indent': Cm(0)
-									}
+		'first_line_indent': Cm(0),
+		'left_indent': Cm(0),
+		'right_indent': Cm(0)
+		}
 		indents_for_standard_size: dict[str, None | Length] = {
-									'first_line_indent': Cm(1.25),
-									'left_indent': Cm(0),
-									'right_indent': Cm(0)
-									}
+		'first_line_indent': Cm(1.25),
+		'left_indent': Cm(0),
+		'right_indent': Cm(0)
+		}
+		indents_list: dict[str, None | Length] = {
+			'first_line_indent': Cm(1.5),
+			'left_indent': Cm(2),
+			'right_indent': Cm(0)
+		}
 
 	#@dataclass
 	class Bolds:
+		'''Полужирное начертание'''
 		header: bool = True
 		picture_name: bool = True
 		standard: bool = False
 
 	#@dataclass
 	class Italics:
+		'''Курсив'''
 		standard: bool = False
 		picture_name: bool = True
 
 	#@dataclass
 	class Underlines:
+		'''Подчёркивание'''
 		standard: bool = False
 
 	#@dataclass
